@@ -24,30 +24,18 @@ public class Program {
     public static void main(String[] args) {
 
         Laptop lap1 = new Laptop("MacBook Air", 17, "M1", 16, 512, "MacOS", "Metallic");
-        // System.out.println(lap1);
         Laptop lap2 = new Laptop("MacBook Air", 15, "M1", 8, 256, "MacOS", "White");
-        // System.out.println(lap2);
         Laptop lap3 = new Laptop("Lenovo IdeaPad", 13, "Intel Celeron", 8, 128, "Windows", "Gray");
-        // System.out.println(lap3);
         Laptop lap4 = new Laptop("Microsoft Surface", 14, "Intel Core i7", 16, 256, "Windows", "Gold");
-        // System.out.println(lap4);
         Laptop lap5 = new Laptop("Acer Swift 3", 15, "Intel Core i5", 4, 128, "Windows", "Black");
-        // System.out.println(lap5);
         Laptop lap6 = new Laptop("HP Spectre x360", 14, "Intel Core i7", 4, 256, "Windows", "Black");
-        // System.out.println(lap6);
         Laptop lap7 = new Laptop("Dell XPS 13", 17, "Intel Core i7", 32, 1024, "Windows", "Metallic");
-        // System.out.println(lap7);
         Laptop lap8 = new Laptop("MacBook Pro", 17, "M1 Pro", 32, 1024, "MacOS", "Black");
-        // System.out.println(lap8);
         Laptop lap9 = new Laptop("Honor MagicBook", 13, "Intel Core i5", 8, 128, "Linux", "Gray");
 
-
         Stream<Laptop> laptopStream = Stream.of(lap1, lap2, lap3, lap4, lap5, lap6, lap7, lap8, lap9);
-        // laptopStream.filter(p->p.getColor() ==
-        // "Metallic").forEach(p->System.out.println(p));
 
         Map<Integer, String> selectionMap = new HashMap<Integer, String>();
-        // selectionMap.put(1, "Модель ");
         selectionMap.put(1, "Размер экрана ");
         selectionMap.put(2, "Процессор");
         selectionMap.put(3, "Оперативная память ");
@@ -104,9 +92,7 @@ public class Program {
             num = in.nextInt();
         }
         String select = selectionMap.get(num);
-        // System.out.println("Вы выбрали: " + select);
-        
-        
+
         switch (num) {
             case 1:
                 System.out.println("Выберите необходимый критерий " + select);
@@ -120,9 +106,10 @@ public class Program {
                     size = in.nextInt();
                 }
                 System.out.println("Выбранному критерию соответствуют следующие модели ноутбуков: \n");
-                laptopStream.filter(p -> p.getScreenSizer() == selectSize.get(key1)).forEach(p -> System.out.println(p));
+                laptopStream.filter(p -> p.getScreenSizer() == selectSize.get(key1))
+                        .forEach(p -> System.out.println(p));
                 break;
-                
+
             case 2:
                 System.out.println("Выберите необходимый критерий " + select);
                 for (Map.Entry<Integer, String> item : selectCpu.entrySet()) {
